@@ -59,7 +59,7 @@
           <a href="https://github.com/nezihatklc" target="_blank" class="btn btn-outline">
             <i class="fab fa-github"></i> GitHub
           </a>
-          <a href="Nezihat_Kilic_CV.pdf" download class="btn btn-outline">
+          <a href="Nezihat_Kilic_CV_EN.pdf" download id="cv-link" class="btn btn-outline">
             <i class="fas fa-file-download"></i> <span data-lang="btn_cv">Download CV</span>
           </a>
         </div>
@@ -446,6 +446,16 @@
     function setLanguage(lang) {
       localStorage.setItem('lang', lang);
       langToggle.textContent = lang === 'en' ? 'TR' : 'EN';
+
+      // Update CV Link based on language
+      const cvLink = document.getElementById('cv-link');
+      if (cvLink) {
+        if (lang === 'tr') {
+          cvLink.href = 'Nezihat_Kilic_CV_TR.pdf';
+        } else {
+          cvLink.href = 'Nezihat_Kilic_CV_EN.pdf';
+        }
+      }
 
       const elements = document.querySelectorAll('[data-lang]');
       elements.forEach(element => {
